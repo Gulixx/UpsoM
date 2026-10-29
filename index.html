@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Certificados - UPSO</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .siu-header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .siu-nav {
+            background: linear-gradient(to bottom, #ffffff, #f1f3f5);
+            border-bottom: 1px solid #dcdcdc;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .siu-nav-item {
+            border-right: 1px solid #e0e0e0;
+            color: #666666;
+            font-size: 13px;
+        }
+        .siu-nav-item:hover {
+            background-color: #e9ecef;
+            color: #333333;
+        }
+        .card-bg {
+            background-color: #eeeeee;
+            border-radius: 6px;
+        }
+        .cert-box {
+            background-color: #e2f0d9;
+            border: 1px solid #d0e5c2;
+            color: #333333;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+        .btn-volver {
+            background: linear-gradient(to bottom, #0070cc, #0050a0);
+            border: 1px solid #004080;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+        .btn-volver:hover {
+            background: linear-gradient(to bottom, #005ab8, #003d7a);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between bg-white">
+
+    <div>
+        <!-- Header Principal -->
+        <header class="siu-header py-3 px-6 md:px-16">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+                <!-- Logo UPSO -->
+                <div class="flex items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Logo_UPSO.png" 
+                         alt="Logo UPSO" 
+                         class="h-20 w-auto object-contain"
+                         onerror="this.onerror=null; this.src='https://placehold.co/80x80/ffffff/800000?text=UPSO';">
+                </div>
+
+                <!-- Información del usuario / Carrera -->
+                <div class="text-right text-xs md:text-sm text-gray-700 font-sans">
+                    <div class="flex items-center justify-end space-x-3 mb-2">
+                        <!-- Icono Correo -->
+                        <div class="flex items-center text-gray-600 hover:text-gray-800 cursor-pointer">
+                            <i class="fas fa-envelope text-gray-700 text-sm mr-1"></i>
+                            <span class="bg-gray-400 text-white text-xs px-1.5 py-0.2 rounded font-bold">0</span>
+                        </div>
+                        <!-- Usuario -->
+                        <div class="flex items-center space-x-1 text-gray-700 hover:text-black cursor-pointer font-medium">
+                            <i class="fas fa-user text-gray-700 text-sm mr-1"></i>
+                            <span>Matias Santiago Grill</span>
+                            <i class="fas fa-caret-down text-gray-600 text-xs ml-1"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-gray-600">Carrera:</span> 
+                        <span class="font-bold text-gray-800">TECNICATURA UNIVERSITARIA EN TECNOLOGÍAS DE PROGRAMACIÓN</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Barra de Navegación -->
+        <nav class="siu-nav">
+            <div class="max-w-7xl mx-auto px-6 md:px-16 flex flex-wrap gap-0">
+                <a href="#" class="siu-nav-item px-4 py-2.5">Inscripción Materias</a>
+                <a href="#" class="siu-nav-item px-4 py-2.5">Inscripción Exámenes</a>
+                <a href="#" class="siu-nav-item px-4 py-2.5 flex items-center gap-1">
+                    Reportes <i class="fas fa-caret-down text-xs"></i>
+                </a>
+                <a href="#" class="siu-nav-item px-4 py-2.5 flex items-center gap-1">
+                    Trámites <i class="fas fa-caret-down text-xs"></i>
+                </a>
+                <a href="#" class="siu-nav-item px-4 py-2.5 flex items-center gap-1">
+                    Egresados <i class="fas fa-caret-down text-xs"></i>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Contenido Principal -->
+        <main class="max-w-6xl mx-auto w-full px-4 md:px-8 py-8">
+            <!-- Título del sistema -->
+            <h1 class="text-2xl font-bold text-sky-600 mb-4 tracking-tight">Validador de Certificados</h1>
+
+            <!-- Tarjeta gris contenedora -->
+            <div class="card-bg p-8 md:p-12 relative shadow-sm border border-gray-200">
+                <!-- Estado del Alumno -->
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-8 tracking-tight">
+                    El alumno es regular
+                </h2>
+
+                <!-- Texto de Certificación Oficial -->
+                <div class="cert-box p-6 md:p-7 rounded mb-8">
+                    La Universidad Provincial del Sudoeste certifica que el alumno Matias Santiago Grill con legajo número 13224, DNI 44322674, es alumno de TECNICATURA UNIVERSITARIA EN TECNOLOGÍAS DE PROGRAMACIÓN en la sede Bahía Blanca.
+                </div>
+
+                <!-- Botón Volver -->
+                <div>
+                    <button onclick="window.history.back()" class="btn-volver text-white font-medium px-7 py-2 rounded text-base cursor-pointer">
+                        Volver
+                    </button>
+                </div>
+
+                <!-- Código QR dinámico discreto -->
+                <div class="mt-8 pt-6 border-t border-gray-300 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                    <div class="flex items-center space-x-3">
+                        <div id="qrcode" class="bg-white p-1.5 border border-gray-300 rounded"></div>
+                        <div>
+                            <p class="font-bold text-gray-700">Verificación Digital QR</p>
+                            <p>Escanee para validar la autenticidad en vivo.</p>
+                        </div>
+                    </div>
+                    <span class="text-gray-400">SIU-Guaraní 3 - UPSO</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Generación del QR dinámico -->
+    <script>
+        window.onload = function() {
+            // Se genera el QR apuntando a la URL actual
+            new QRCode(document.getElementById("qrcode"), {
+                text: window.location.href,
+                width: 72,
+                height: 72,
+                colorDark: "#222222",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.M
+            });
+        };
+    </script>
+</body>
+</html>
